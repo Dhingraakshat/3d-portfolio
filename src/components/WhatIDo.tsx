@@ -87,20 +87,21 @@ const WhatIDo = () => {
             <div className="what-corner"></div>
 
             <div className="what-content-in">
-              <h3>AI & AUTOMATION</h3>
-              <h4>Workflow Intelligence for Organizations</h4>
+              <h3>HPC & DATA ENGINEERING</h3>
+              <h4>High-Performance Computing Infrastructure</h4>
               <p>
-                AI specialist helping organizations automate workflows—internal ops
-                and customer-facing—so teams ship faster with less manual work.
+                Building scalable data infrastructure leveraging high-performance computing clusters 
+                to process massive datasets. Expertise in distributed systems, large-scale data pipelines, 
+                and optimized computational workflows for complex analytical workloads.
               </p>
               <h5>Skillset & tools</h5>
               <div className="what-content-flex">
-                <div className="what-tags">LLMs &amp; agents</div>
-                <div className="what-tags">Workflow design</div>
-                <div className="what-tags">RAG &amp; retrieval</div>
-                <div className="what-tags">Evals &amp; guardrails</div>
-                <div className="what-tags">Integrations</div>
-                <div className="what-tags">Product strategy</div>
+                <div className="what-tags">HPC Clusters</div>
+                <div className="what-tags">Distributed Systems</div>
+                <div className="what-tags">ETL/ELT Pipelines</div>
+                <div className="what-tags">Apache Spark</div>
+                <div className="what-tags">Kafka</div>
+                <div className="what-tags">Docker & Kubernetes</div>
               </div>
               <div className="what-arrow"></div>
             </div>
@@ -124,21 +125,21 @@ const WhatIDo = () => {
             </div>
             <div className="what-corner"></div>
             <div className="what-content-in">
-              <h3>BUILD &amp; SCALE</h3>
-              <h4>Shipping AI in Production</h4>
+              <h3>MACHINE LEARNING & ANALYTICS</h3>
+              <h4>Data-Driven Insights & Predictive Modeling</h4>
               <p>
-                I build the systems behind it: APIs, data, voice/real-time, and
-                full-stack products—production-ready, not slide decks.
+                Architecting end-to-end machine learning solutions for complex analytical problems. 
+                From data preprocessing and feature engineering to deploying production-ready predictive 
+                models with explainable AI for transparent, actionable insights.
               </p>
               <h5>Skillset & tools</h5>
               <div className="what-content-flex">
-                <div className="what-tags">Node.js</div>
-                <div className="what-tags">Python</div>
-                <div className="what-tags">REST &amp; real-time APIs</div>
-                <div className="what-tags">PostgreSQL</div>
-                <div className="what-tags">MongoDB</div>
-                <div className="what-tags">React</div>
-                <div className="what-tags">Cloud &amp; infra</div>
+                <div className="what-tags">Python & SQL</div>
+                <div className="what-tags">Predictive Analytics</div>
+                <div className="what-tags">XGBoost & Ensemble Methods</div>
+                <div className="what-tags">Feature Engineering</div>
+                <div className="what-tags">SHAP & Explainable AI</div>
+                <div className="what-tags">Statistical Analysis</div>
               </div>
               <div className="what-arrow"></div>
             </div>

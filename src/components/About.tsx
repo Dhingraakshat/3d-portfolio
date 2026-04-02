@@ -6,11 +6,7 @@ const About = () => {
       <div className="about-me">
         <h3 className="title">About Me</h3>
         <p className="para">
-          I am currently co-founder of CallHQ.ai, building real-time voice AI for
-          businesses. I am a technologist at heart with strong business judgment—
-          I enjoy going from product strategy to hands-on engineering. My background
-          spans leadership at Adobe, founding Broki and CallHQ, and shipping
-          full-stack products end to end.
+          Recent BSc Computer Systems graduate from Riga Technical University specializing in High-Performance Computing (HPC) and large-scale data infrastructure. My technical background bridges advanced computing and real-world application, demonstrated through a university-industry collaboration with SEB Bank, where I leveraged HPC environments to process high-volume datasets and deploy scalable predictive models. Currently expanding expertise through collaborations in AI-driven solutions, DevOps automation, and data engineering. Driven by complex computational challenges and passionate about solving real-world problems through data analysis and infrastructure optimization.
         </p>
       </div>
     </div>

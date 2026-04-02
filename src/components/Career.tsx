@@ -15,58 +15,88 @@ const Career = () => {
           <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
-                <h4>Co-Founder</h4>
-                <h5>CallHQ.ai</h5>
+                <h4>Data Software Eng. Trainee</h4>
+                <h5>EPAM</h5>
               </div>
               <h3>NOW</h3>
             </div>
             <p>
-              Building CallHQ.ai, a voice AI platform for
-              automating customer calls, support, and conversions.
+              Selected from competitive applicant pool for intensive data engineering program. 
+              Architecting high-throughput ETL/ELT pipelines, working with distributed processing 
+              frameworks (Apache Spark/Hadoop), Kafka, and scalable SQL/NoSQL databases to manage 
+              massive data volumes while applying rigorous software engineering best practices.
             </p>
           </div>
           <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
-                <h4>Adobe</h4>
-                <h5>6+ years · Noida</h5>
+                <h4>Applied AI & HPC Solutions Developer</h4>
+                <h5>Tomega.lv · Riga, Latvia</h5>
               </div>
-              <h3>2017–24</h3>
+              <h3>12/02/26–NOW</h3>
             </div>
             <p>
-              Senior Lead Software Engineer (Feb 2024 – May 2024). Lead Software
-              Engineer (Feb 2021 – Feb 2024). Software Engineer II (Dec 2017 –
-              Feb 2021): internationalization, globalization, and localization for
-              Adobe Technical Communication Suite; functional and linguistic testing
-              strategy; in-house tooling; collaboration with product and engineering
-              for high-quality localized releases.
+              Architecting the High-Performance Computing backend for AI-driven EdTech solution. 
+              Leveraging HPC clusters for large-scale model training and deploying distributed computing 
+              pipelines to accelerate ML algorithm fine-tuning. Bridging heavy computational infrastructure 
+              with seamless user experience for non-technical users.
             </p>
           </div>
           <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
-                <h4>Consultant</h4>
-                <h5>Genpact Headstrong </h5>
+                <h4>Research Assistant</h4>
+                <h5>Riga Technical University</h5>
               </div>
-              <h3>2016–17</h3>
+              <h3>25/11/25–NOW</h3>
             </div>
             <p>
-              Sep 2016 – Nov 2017. Developed and maintained WCF services consumed
-              by the UI; deployment support across environments; NUnit tests and
-              coverage; bug fixes from QA and users; database work.
+              Co-conducting research on Model-Driven DevOps with AI (MDDOAI) with Prof. Jordi Cabot (University 
+              of Luxembourg). Architecting scalable DevOps workflows, implementing M2M and M2T transformations to 
+              automate GitLab CI/CD pipeline generation from software architecture models.
             </p>
           </div>
           <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
-                <h4>Sf Engineer</h4>
-                <h5>Infogain</h5>
+                <h4>HPC Solutions Developer</h4>
+                <h5>SEB Bank (University–Industry Collaboration)</h5>
               </div>
-              <h3>2013-16</h3>
+              <h3>15/02–15/07/25</h3>
             </div>
             <p>
-              Software engineering across enterprise projects, contributing to
-              design, development, and delivery of business applications.
+              Leveraged HPC infrastructure to architect large-scale data processing pipelines for advanced 
+              financial analytics. Engineered computationally intensive predictive models (SVM, XGBoost) on HPC 
+              clusters to forecast cash flow trends. Developed scalable ML classification system for client 
+              segmentation and risk assessment.
+            </p>
+          </div>
+          <div className="career-info-box">
+            <div className="career-info-in">
+              <div className="career-role">
+                <h4>Web Developer</h4>
+                <h5>Formula Student RTU · Riga, Latvia</h5>
+              </div>
+              <h3>01/10/25–NOW</h3>
+            </div>
+            <p>
+              Sole web developer building the official Formula Student RTU website from ground up. 
+              Bridged technical engineering teams with external stakeholders. Managed digital communications 
+              and sponsor engagement for international competition.
+            </p>
+          </div>
+          <div className="career-info-box">
+            <div className="career-info-in">
+              <div className="career-role">
+                <h4>Graphic Designer</h4>
+                <h5>Inventive Cafe India Pvt. Ltd.</h5>
+              </div>
+              <h3>15/01–15/06/21</h3>
+            </div>
+            <p>
+              Initiated IT and digital career creating foundational brand assets (logos, web graphics) using 
+              Adobe Creative Suite. Designed and delivered high-quality digital visual content across platforms 
+              while aligning with corporate brand guidelines.
             </p>
           </div>
         </div>
