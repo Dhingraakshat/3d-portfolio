@@ -8,31 +8,45 @@ const projects = [
     title: "Fraud Detection ML System",
     category: "Detection of Known and Unknown Fraud Patterns",
     tools: "Python, LightGBM, XGBoost, Optuna, SHAP, Autoencoders",
-    image: "/images/fraud-detection.png",
-    link: "#work",
+    image: "/images/fraud-detection.jpg",
   },
   {
     title: "Smart Home Hub",
     category: "AI-Powered Energy Optimization",
     tools: "IoT, Machine Learning, Edge Computing, Real-time Data Pipelines",
-    image: "/images/smart-home.png",
-    link: "#work",
+    image: "/images/smart-home.jpg",
   },
   {
     title: "Model-Driven DevOps (MDDOAI)",
     category: "AI-Driven CI/CD Pipeline Generation",
     tools: "Model Transformation, GitLab CI, DevOps Automation, MDSE",
-    image: "/images/devops.png",
-    link: "#work",
+    image: "/images/devops.jpg",
   },
   {
     title: "Formula Student RTU Website",
     category: "Official Team Portal & Engagement Platform",
     tools: "React, TypeScript, Web Design, Responsive Architecture",
-    image: "/images/formula-student.png",
-    link: "#work",
+    image: "/images/formula-student.jpg",
   },
 ];
+
+const handleTiltMove = (e: React.MouseEvent<HTMLDivElement>) => {
+  const card = e.currentTarget;
+  const rect = card.getBoundingClientRect();
+  const x = e.clientX - rect.left;
+  const y = e.clientY - rect.top;
+  const cx = rect.width / 2;
+  const cy = rect.height / 2;
+  const rotX = ((y - cy) / cy) * -5;
+  const rotY = ((x - cx) / cx) * 5;
+  card.style.transform = `perspective(1100px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale(1.01)`;
+  card.style.transition = "transform 0.08s ease-out";
+};
+
+const handleTiltLeave = (e: React.MouseEvent<HTMLDivElement>) => {
+  e.currentTarget.style.transform = "";
+  e.currentTarget.style.transition = "transform 0.5s ease";
+};
 
 const Work = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -96,7 +110,11 @@ const Work = () => {
             >
               {projects.map((project, index) => (
                 <div className="carousel-slide" key={index}>
-                  <div className="carousel-content">
+                  <div
+                    className="carousel-content"
+                    onMouseMove={handleTiltMove}
+                    onMouseLeave={handleTiltLeave}
+                  >
                     <div className="carousel-info">
                       <div className="carousel-number">
                         <h3>0{index + 1}</h3>
@@ -116,7 +134,6 @@ const Work = () => {
                       <WorkImage
                         image={project.image}
                         alt={project.title}
-                        link={project.link}
                       />
                     </div>
                   </div>

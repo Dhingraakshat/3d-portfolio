@@ -35,7 +35,7 @@ const WhatIDo = () => {
         </h2>
       </div>
       <div className="what-box">
-        <div className="what-box-in">
+        <div className="what-box-in what-box-in-three">
           <div className="what-border2">
             <svg width="100%">
               <line
@@ -125,11 +125,11 @@ const WhatIDo = () => {
             </div>
             <div className="what-corner"></div>
             <div className="what-content-in">
-              <h3>MACHINE LEARNING & ANALYTICS</h3>
+              <h3>ML & ANALYTICS</h3>
               <h4>Data-Driven Insights & Predictive Modeling</h4>
               <p>
-                Architecting end-to-end machine learning solutions for complex analytical problems. 
-                From data preprocessing and feature engineering to deploying production-ready predictive 
+                Architecting end-to-end machine learning solutions for complex analytical problems.
+                From data preprocessing and feature engineering to deploying production-ready predictive
                 models with explainable AI for transparent, actionable insights.
               </p>
               <h5>Skillset & tools</h5>
@@ -140,6 +140,45 @@ const WhatIDo = () => {
                 <div className="what-tags">Feature Engineering</div>
                 <div className="what-tags">SHAP & Explainable AI</div>
                 <div className="what-tags">Statistical Analysis</div>
+              </div>
+              <div className="what-arrow"></div>
+            </div>
+          </div>
+          <div
+            className="what-content what-noTouch"
+            ref={(el) => setRef(el, 2)}
+          >
+            <div className="what-border1">
+              <svg height="100%">
+                <line
+                  x1="0"
+                  y1="100%"
+                  x2="100%"
+                  y2="100%"
+                  stroke="white"
+                  strokeWidth="2"
+                  strokeDasharray="6,6"
+                />
+              </svg>
+            </div>
+            <div className="what-corner"></div>
+            <div className="what-content-in">
+              <h3>DEVOPS & RESEARCH</h3>
+              <h4>Model-Driven Automation & Academic Research</h4>
+              <p>
+                Co-conducting research on AI-driven CI/CD pipeline generation (MDDOAI) with
+                Prof. Jordi Cabot (University of Luxembourg). Architecting M2M/M2T transformations
+                that convert platform-independent models into executable GitLab pipelines. Hands-on
+                with containerisation, cloud workflows, and automated infrastructure deployment.
+              </p>
+              <h5>Skillset & tools</h5>
+              <div className="what-content-flex">
+                <div className="what-tags">GitLab CI/CD</div>
+                <div className="what-tags">Model Transformation</div>
+                <div className="what-tags">Docker & Kubernetes</div>
+                <div className="what-tags">DevOps Automation</div>
+                <div className="what-tags">AWS & Azure</div>
+                <div className="what-tags">Academic Research</div>
               </div>
               <div className="what-arrow"></div>
             </div>

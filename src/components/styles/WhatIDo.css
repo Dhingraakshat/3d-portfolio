@@ -391,3 +391,54 @@
     line-height: 6.8rem;
   }
 }
+
+/* 3-card layout overrides */
+.what-box-in-three {
+  height: 660px;
+}
+.what-box-in-three .what-content {
+  min-height: 33%;
+}
+.what-box-in-three .what-noTouch:hover,
+.what-box-in-three .what-content-active {
+  min-height: 50%;
+}
+.what-box-in-three .what-noTouch:hover ~ .what-content,
+.what-box-in-three:hover .what-noTouch:not(:hover),
+.what-box-in-three .what-content.what-sibling {
+  min-height: 22%;
+  padding: 10px 50px;
+}
+@media only screen and (max-width: 1400px) {
+  .what-box-in-three {
+    height: 570px;
+  }
+  .what-box-in-three .what-noTouch:hover ~ .what-content,
+  .what-box-in-three:hover .what-noTouch:not(:hover),
+  .what-box-in-three .what-content.what-sibling {
+    padding: 10px 30px;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .what-box-in-three {
+    height: 660px;
+  }
+  .what-box-in-three .what-noTouch:hover ~ .what-content,
+  .what-box-in-three:hover .what-noTouch:not(:hover),
+  .what-box-in-three .what-content.what-sibling {
+    padding: 10px 50px;
+  }
+}
+@media only screen and (max-width: 900px) {
+  .what-box:last-child:has(.what-box-in-three) {
+    height: 620px;
+  }
+  .what-box-in-three {
+    height: 570px;
+  }
+  .what-box-in-three .what-noTouch:hover ~ .what-content,
+  .what-box-in-three:hover .what-noTouch:not(:hover),
+  .what-box-in-three .what-content.what-sibling {
+    padding: 5px 30px;
+  }
+}

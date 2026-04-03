@@ -1,0 +1,62 @@
+.stats-section {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 70px 0;
+  width: var(--cWidth);
+  max-width: 1300px;
+  margin: auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.stat-item {
+  text-align: center;
+  position: relative;
+}
+
+.stat-number {
+  font-size: 76px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--accentColor);
+  font-family: "Geist", sans-serif;
+  text-shadow: 0 0 40px rgba(94, 234, 212, 0.25), 0 0 80px rgba(94, 234, 212, 0.1);
+  letter-spacing: -2px;
+}
+
+.stat-label {
+  font-size: 13px;
+  font-weight: 300;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+  margin-top: 10px;
+}
+
+@media only screen and (max-width: 900px) {
+  .stats-section {
+    flex-wrap: wrap;
+    gap: 45px;
+    padding: 50px 0;
+  }
+
+  .stat-number {
+    font-size: 54px;
+  }
+
+  .stat-item {
+    width: 45%;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .stat-number {
+    font-size: 44px;
+  }
+
+  .stat-label {
+    font-size: 11px;
+    letter-spacing: 2px;
+  }
+}

@@ -1,11 +1,15 @@
 import { lazy, PropsWithChildren, Suspense, useEffect, useState } from "react";
 import About from "./About";
+import Awards from "./Awards";
 import Career from "./Career";
 import Contact from "./Contact";
 import Cursor from "./Cursor";
 import Landing from "./Landing";
 import Navbar from "./Navbar";
+import ParticleBackground from "./ParticleBackground";
 import SocialIcons from "./SocialIcons";
+import Spotlight from "./Spotlight";
+import Stats from "./Stats";
 import WhatIDo from "./WhatIDo";
 import Work from "./Work";
 import setSplitText from "./utils/splitText";
@@ -32,6 +36,8 @@ const MainContainer = ({ children }: PropsWithChildren) => {
   return (
     <div className="container-main">
       <Cursor />
+      <Spotlight />
+      <ParticleBackground />
       <Navbar />
       <SocialIcons />
       {isDesktopView && children}
@@ -39,9 +45,11 @@ const MainContainer = ({ children }: PropsWithChildren) => {
         <div id="smooth-content">
           <div className="container-main">
             <Landing>{!isDesktopView && children}</Landing>
+            <Stats />
             <About />
             <WhatIDo />
             <Career />
+            <Awards />
             <Work />
             {isDesktopView && (
               <Suspense fallback={<div>Loading....</div>}>

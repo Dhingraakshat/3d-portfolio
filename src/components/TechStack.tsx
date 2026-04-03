@@ -11,24 +11,89 @@ import {
   RapierRigidBody,
 } from "@react-three/rapier";
 
-const textureLoader = new THREE.TextureLoader();
-const imageUrls = [
-  "/images/python.webp",
-  "/images/sql.webp",
-  "/images/cuda.webp",
-  "/images/docker.webp",
-  "/images/kubernetes.webp",
-  "/images/git.webp",
-  "/images/linux.webp",
-  "/images/spark.webp",
-  "/images/kafka.webp",
-  "/images/pytorch.webp",
+// bg: sphere background colour, fg: fill injected into SVG paths (null = keep original)
+const skillLogos = [
+  { url: "/images/python.svg",      bg: "#ffffff", fg: null      },
+  { url: "/images/sql.svg",         bg: "#ffffff", fg: null      },
+  { url: "/images/cuda.svg",        bg: "#ffffff", fg: null      },
+  { url: "/images/docker.svg",      bg: "#ffffff", fg: null      },
+  { url: "/images/kubernetes.svg",  bg: "#ffffff", fg: null      },
+  { url: "/images/git.svg",         bg: "#ffffff", fg: null      },
+  { url: "/images/linux.svg",       bg: "#ffffff", fg: null      },
+  { url: "/images/spark.svg",       bg: "#ffffff", fg: null      },
+  { url: "/images/kafka.svg",       bg: "#ffffff", fg: "#231f20" },
+  { url: "/images/react.svg",       bg: "#ffffff", fg: null      },
+  { url: "/images/tensorflow.svg",  bg: "#ffffff", fg: null      },
+  { url: "/images/numpy.svg",       bg: "#ffffff", fg: null      },
+  { url: "/images/pandas.svg",      bg: "#ffffff", fg: null      },
+  { url: "/images/jupyter.svg",     bg: "#ffffff", fg: null      },
+  { url: "/images/scikitlearn.svg", bg: "#ffffff", fg: null      },
+  { url: "/images/matplotlib.svg",  bg: "#ffffff", fg: null      },
+  { url: "/images/aws.svg",         bg: "#ffffff", fg: null      },
+  { url: "/images/azure.svg",       bg: "#ffffff", fg: null      },
+  { url: "/images/mongodb.svg",     bg: "#ffffff", fg: null      },
+  { url: "/images/github.svg",      bg: "#ffffff", fg: null      },
+  { url: "/images/gitlab.svg",      bg: "#ffffff", fg: null      },
+  { url: "/images/java.svg",        bg: "#ffffff", fg: null      },
+  { url: "/images/javascript.svg",  bg: "#ffffff", fg: null      },
+  { url: "/images/typescript.svg",  bg: "#ffffff", fg: null      },
+  { url: "/images/nodejs.svg",      bg: "#ffffff", fg: null      },
+  { url: "/images/html5.svg",       bg: "#ffffff", fg: null      },
+  { url: "/images/css3.svg",        bg: "#ffffff", fg: null      },
 ];
-const textures = imageUrls.map((url) => textureLoader.load(url));
+
+// 2:1 canvas — logo drawn in each half so it shows on both front and back of the sphere
+const TILE = 256;
+const PAD = 36;
+
+function createCanvasTexture(url: string, bg: string, fg: string | null): THREE.CanvasTexture {
+  const canvas = document.createElement("canvas");
+  canvas.width = TILE * 2; // two tiles wide = logo at 0° and 180°
+  canvas.height = TILE;
+  const ctx = canvas.getContext("2d")!;
+  ctx.fillStyle = bg;
+  ctx.fillRect(0, 0, TILE * 2, TILE);
+  const texture = new THREE.CanvasTexture(canvas);
+
+  fetch(url)
+    .then((r) => {
+      if (!r.ok) throw new Error(`HTTP ${r.status}: ${url}`);
+      return r.text();
+    })
+    .then((svgText) => {
+      let patched = svgText
+        .replace(/\s*\bwidth\s*=\s*["'][^"']*["']/g, "")
+        .replace(/\s*\bheight\s*=\s*["'][^"']*["']/g, "")
+        .replace(/<svg/, `<svg width="${TILE}" height="${TILE}"`);
+
+      if (fg) {
+        patched = patched.replace(/<svg([^>]*)>/, `<svg$1><style>path,circle,rect,polygon{fill:${fg}}</style>`);
+      }
+
+      const dataUri =
+        "data:image/svg+xml;charset=utf-8," + encodeURIComponent(patched);
+      const img = new Image();
+      img.onload = () => {
+        ctx.fillStyle = bg;
+        ctx.fillRect(0, 0, TILE * 2, TILE);
+        // Draw logo in left tile (front) and right tile (back)
+        ctx.drawImage(img, PAD, PAD, TILE - PAD * 2, TILE - PAD * 2);
+        ctx.drawImage(img, TILE + PAD, PAD, TILE - PAD * 2, TILE - PAD * 2);
+        texture.needsUpdate = true;
+      };
+      img.onerror = () => console.warn(`Logo failed to render: ${url}`);
+      img.src = dataUri;
+    })
+    .catch((e) => console.warn(e));
+
+  return texture;
+}
+
+const textures = skillLogos.map(({ url, bg, fg }) => createCanvasTexture(url, bg, fg));
 
 const sphereGeometry = new THREE.SphereGeometry(1, 28, 28);
 
-const spheres = [...Array(30)].map(() => ({
+const spheres = skillLogos.map(() => ({
   scale: [0.7, 1, 0.8, 1, 1][Math.floor(Math.random() * 5)],
 }));
 
@@ -158,12 +223,9 @@ const TechStack = () => {
       (texture) =>
         new THREE.MeshPhysicalMaterial({
           map: texture,
-          emissive: "#ffffff",
-          emissiveMap: texture,
-          emissiveIntensity: 0.3,
-          metalness: 0.5,
-          roughness: 1,
-          clearcoat: 0.1,
+          metalness: 0.1,
+          roughness: 0.6,
+          clearcoat: 0.2,
         })
     );
   }, []);
@@ -195,7 +257,7 @@ const TechStack = () => {
             <SphereGeo
               key={i}
               {...props}
-              material={materials[Math.floor(Math.random() * materials.length)]}
+              material={materials[i]}
               isActive={isActive}
             />
           ))}

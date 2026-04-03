@@ -28,6 +28,10 @@ const Contact = () => {
             </p>
           </div>
           <div className="contact-box">
+            <h4>Languages</h4>
+            <p>Hindi — Native</p>
+            <p>English — Fluent</p>
+            <p>German — Conversational</p>
             <h4>Social</h4>
             <a
               href="https://www.linkedin.com/in/akshat-dhingra-3b1476202/"

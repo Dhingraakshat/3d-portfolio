@@ -1,0 +1,20 @@
+.spotlight-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 6;
+  background: radial-gradient(
+    circle 320px at var(--sx, 50%) var(--sy, 50%),
+    transparent 0%,
+    transparent 28%,
+    rgba(5, 8, 16, 0.38) 75%,
+    rgba(5, 8, 16, 0.5) 100%
+  );
+}
+
+/* Only show on devices with a real pointer */
+@media (hover: none) {
+  .spotlight-overlay {
+    display: none;
+  }
+}

@@ -6,7 +6,7 @@ const About = () => {
       <div className="about-me">
         <h3 className="title">About Me</h3>
         <p className="para">
-          Recent BSc Computer Systems graduate from Riga Technical University specializing in High-Performance Computing (HPC) and large-scale data infrastructure. My technical background bridges advanced computing and real-world application, demonstrated through a university-industry collaboration with SEB Bank, where I leveraged HPC environments to process high-volume datasets and deploy scalable predictive models. Currently expanding expertise through collaborations in AI-driven solutions, DevOps automation, and data engineering. Driven by complex computational challenges and passionate about solving real-world problems through data analysis and infrastructure optimization.
+          BSc Computer Systems graduate from Riga Technical University, specialising in High-Performance Computing and large-scale data systems. I turn raw compute power into real-world impact — most recently in a university–industry collaboration with SEB Bank, building ML pipelines on HPC clusters to forecast financial cash flow at scale. Now deepening that work as a Data Engineering Trainee at EPAM, while co-researching AI-driven DevOps automation with Prof. Jordi Cabot at the University of Luxembourg. I'm at my best when the data is massive, the infrastructure is complex, and the deadline is tight.
         </p>
       </div>
     </div>

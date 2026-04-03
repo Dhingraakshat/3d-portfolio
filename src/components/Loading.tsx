@@ -1,14 +1,39 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./styles/Loading.css";
 import { useLoading } from "../context/LoadingProvider";
 
 import Marquee from "react-fast-marquee";
+
+const TERMINAL_MESSAGES = [
+  "$ ./launch_portfolio.sh",
+  "> Initializing HPC environment...",
+  "> Loading ML frameworks...   [OK]",
+  "> Mounting 3D systems...     [OK]",
+  "> Connecting research nodes...",
+  "> All systems nominal.",
+];
 
 const Loading = ({ percent }: { percent: number }) => {
   const { setIsLoading } = useLoading();
   const [loaded, setLoaded] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
   const [clicked, setClicked] = useState(false);
+  const [termLines, setTermLines] = useState<string[]>([]);
+  const termRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    TERMINAL_MESSAGES.forEach((msg, i) => {
+      setTimeout(() => {
+        setTermLines((prev) => [...prev, msg]);
+      }, i * 380 + 300);
+    });
+  }, []);
+
+  useEffect(() => {
+    if (termRef.current) {
+      termRef.current.scrollTop = termRef.current.scrollHeight;
+    }
+  }, [termLines]);
 
   if (percent >= 100) {
     setTimeout(() => {
@@ -46,7 +71,7 @@ const Loading = ({ percent }: { percent: number }) => {
     <>
       <div className="loading-header">
         <a href="/#" className="loader-title" data-cursor="disable">
-          AM
+          AD
         </a>
         <div className={`loaderGame ${clicked && "loader-out"}`}>
           <div className="loaderGame-container">
@@ -60,10 +85,16 @@ const Loading = ({ percent }: { percent: number }) => {
         </div>
       </div>
       <div className="loading-screen">
+        <div className="terminal-panel" ref={termRef}>
+          {termLines.map((line, i) => (
+            <div key={i} className="terminal-line">{line}</div>
+          ))}
+          {termLines.length > 0 && <div className="terminal-cursor-blink" />}
+        </div>
         <div className="loading-marquee">
           <Marquee>
-            <span> Full Stack Developer</span> <span>Software Engineer</span>
-            <span> Full Stack Developer</span> <span>Software Engineer</span>
+            <span> Data Engineer</span> <span>Data Analyst</span>
+            <span> HPC Developer</span> <span>ML Engineer</span>
           </Marquee>
         </div>
         <div
