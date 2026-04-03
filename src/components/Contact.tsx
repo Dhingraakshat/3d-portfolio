@@ -43,7 +43,7 @@ const Contact = () => {
               LinkedIn <MdArrowOutward />
             </a>
             <a
-              href="https://github.com/akshatdhingra"
+              href="https://github.com/Dhingraakshat"
               target="_blank"
               rel="noreferrer"
               data-cursor="disable"
