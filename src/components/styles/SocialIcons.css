@@ -45,7 +45,7 @@
 }
 .resume-button {
   position: absolute;
-  z-index: 99;
+  z-index: 9999;
   display: flex;
   gap: 5px;
   bottom: 40px;
@@ -60,10 +60,19 @@
   cursor: pointer;
   transition: 0.5s;
   transform-origin: left bottom;
-  transform: translateX(100%) rotateZ(-90deg);
+  transform: translateX(0) rotateZ(0);
+  pointer-events: auto;
+  text-decoration: none;
+  user-select: none;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 5px 10px;
+  border-radius: 4px;
 }
 .resume-button:hover {
   color: #fff;
+  transform: translateX(0) rotateZ(0);
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
 div.resume-button span {
   color: #fff;

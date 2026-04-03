@@ -8,6 +8,22 @@ import { useEffect } from "react";
 import HoverLinks from "./HoverLinks";
 
 const SocialIcons = () => {
+  const handleResumeDownload = (e: React.MouseEvent) => {
+    console.log('Resume download clicked from SocialIcons');
+    e.preventDefault();
+    try {
+      const link = document.createElement('a');
+      link.href = '/Akshat_CV_HPC_final.pdf';
+      link.download = 'Akshat_Dhingra_CV.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      console.log('Resume download initiated');
+    } catch (error) {
+      console.error('Resume download failed:', error);
+    }
+  };
+
   useEffect(() => {
     const social = document.getElementById("social") as HTMLElement;
 
@@ -76,17 +92,24 @@ const SocialIcons = () => {
           </a>
         </span>
       </div>
-      <a
+      <div
         className="resume-button"
-        href="/Akshat_CV_HPC_final.pdf"
-        target="_blank"
-        rel="noreferrer"
+        onClick={handleResumeDownload}
+        style={{ cursor: 'pointer' }}
+        role="button"
+        tabIndex={0}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            handleResumeDownload(e as any);
+          }
+        }}
       >
         <HoverLinks text="RESUME" />
         <span>
           <TbNotes />
         </span>
-      </a>
+      </div>
     </div>
   );
 };

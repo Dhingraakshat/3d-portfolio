@@ -1,22 +1,23 @@
 import { PropsWithChildren } from "react";
 import "./styles/Landing.css";
 
-async function forceDownloadPDF() {
-  try {
-    const res = await fetch("/Akshat_CV_HPC_final.pdf");
-    const blob = await res.blob();
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = "Akshat_Dhingra_CV.pdf";
-    a.click();
-    URL.revokeObjectURL(url);
-  } catch {
-    window.open("/Akshat_CV_HPC_final.pdf", "_blank");
-  }
-}
-
 const Landing = ({ children }: PropsWithChildren) => {
+  const handleResumeDownload = (e: React.MouseEvent) => {
+    console.log('Resume download clicked from Landing');
+    e.preventDefault();
+    try {
+      const link = document.createElement('a');
+      link.href = '/Akshat_CV_HPC_final.pdf';
+      link.download = 'Akshat_Dhingra_CV.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      console.log('Resume download initiated');
+    } catch (error) {
+      console.error('Resume download failed:', error);
+    }
+  };
+
   return (
     <>
       <div className="landing-section" id="landingDiv">
@@ -45,13 +46,22 @@ const Landing = ({ children }: PropsWithChildren) => {
               <div className="landing-h2-info">ML</div>
               <div className="landing-h2-info-1">Engineer</div>
             </h2>
-            <button
+            <a
+              onClick={handleResumeDownload}
               className="resume-btn"
               data-cursor="disable"
-              onClick={forceDownloadPDF}
+              style={{ cursor: 'pointer' }}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  handleResumeDownload(e);
+                }
+              }}
             >
               Download Resume ↓
-            </button>
+            </a>
           </div>
         </div>
         {children}
